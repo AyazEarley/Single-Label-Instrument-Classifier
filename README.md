@@ -1,6 +1,5 @@
 # Single Label Instrument ID using transfer learning and the IRMAS Dataset
 Using ResNet18, I created a model that classifies audio clips of 11 different instruments, with 83% accuracy.
----
 ### Results at a glance:
 
 | Instrument       | Validation Accuracy |
