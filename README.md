@@ -18,7 +18,7 @@ Using ResNet18, I created a model that classifies audio clips of 11 different in
 | **Overall**      | **83.08%**          |
 
 ### Problem and Approach
-My model processes ~2 second .wav files from the [IRMAS Dataset](https://www.upf.edu/web/mtg/irmas), and classifies the audio with a single instrument label. Initially I designed a custom CNN, which struggled to break through 75% validation accuracy. After pivoting to transfer learning using the ResNet18 model, the model was able to achieve 83% validation accuracy.
+My model processes ~2 second .wav files from the [IRMAS Dataset](https://www.upf.edu/web/mtg/irmas), and classifies the audio with a single instrument label. Initially I designed a custom CNN, which struggled to break through 75% validation accuracy. After pivoting to transfer learning using the ResNet18 model, the model was able to achieve 83% validation accuracy. 
 
 ### Pipeline
 
@@ -32,7 +32,7 @@ graph LR
 ### Tech Stack
 - Librosa (audio-spectrogram conversions)
 - PyTorch (transfer learning with pretrained ResNet18)
-- Seaborn (rednering confusion matrix)
+- Seaborn (rendering confusion matrix)
 - scikit-learn (confusion matrix stats)
 
 ### Confusion Matrix
@@ -42,4 +42,8 @@ graph LR
 
 1) The model achieves a training accuracy of ~90% while validation accuracy plateaus at ~80%. Even with aggressive dropout and data augmentation, it's difficult to push validation accuracy higher than 83% and avoid overfitting.
 
-2) The IRMAS dataset is not equally distributed across all 11 labels of instruments. Looking at our confusion matrix, the model performs slightly better on some instruments and worse on others. If the 80-20 datasplit happens to disproportionately favor certain instruments, accuracy can be improved or worsened as a result. It's final accuracy varies ~&pm;2% across different instances of training.
+2) The IRMAS dataset is not equally distributed across all 11 labels of instruments and looking at our confusion matrix, the model performs slightly better on some instruments and worse on others. If the 80-20 datasplit happens to disproportionately favor certain instruments, accuracy can be improved or worsened as a result. It's final accuracy varies ~&pm;2% across different instances of training.
+
+### Next steps
+
+With the lessons learned from this project, I intend to try multi-label classification, as the IRMAS dataset was created for that purpose, and more data is readily available. 
